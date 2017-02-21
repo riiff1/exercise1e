@@ -1,6 +1,8 @@
 package wdsr.exercise1;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,5 +23,17 @@ public class CalculatorUtilSubtractionTest {
 	@Test
 	public void test3minus1() {
 		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSubtractProperlyEmbeddedNegativeValuesWithBrackets() {
+		// given
+		when(calculator.subtract(-3, -1)).thenReturn(-2);
+
+		// when
+		String actual = calcUtil.getSubstractionText(-3, -1);
+
+		// then
+		assertEquals("(-3) - (-1) = (-2)", actual);
 	}
 }

@@ -21,5 +21,10 @@ public class CalculatorUtilModuloTest {
 	@Test
 	public void testModuloByZero() {
 		fail("Not yet implemented");
-	}	
+	}
+
+	@Test
+	public void testModulo16By4() {
+		fail("Not yet implemented");
+	}
 }

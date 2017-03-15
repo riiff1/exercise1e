@@ -14,6 +14,9 @@ public class CalculatorUtil {
 	}
 
 	public String getSubstractionText(final int a, final int b) {
+		if(a < 0 && b <0) {
+			return getSubstractionTextWithBrackets(a,b);
+		}
 		return String.format("%s - %s = %s", a, b, calculator.subtract(a, b));
 	}
 	
@@ -23,6 +26,11 @@ public class CalculatorUtil {
 	
 	public String getModuloText(final int a, final int b) {
 		return String.format("%s %% %s = %s", a, b, calculator.modulo(a, b));
-	}		
+	}
+
+	private String getSubstractionTextWithBrackets(final int a, final int b)
+	{
+		return String.format("(%s) - (%s) = (%s)", a, b, calculator.subtract(a, b));
+	}
 
 }

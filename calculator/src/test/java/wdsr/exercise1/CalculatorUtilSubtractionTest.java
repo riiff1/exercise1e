@@ -2,6 +2,8 @@ package wdsr.exercise1;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
@@ -22,7 +24,15 @@ public class CalculatorUtilSubtractionTest {
 
 	@Test
 	public void test3minus1() {
-		fail("Not yet implemented");
+		// given
+		when(calculator.subtract(anyInt(), anyInt())).thenReturn(0);
+
+		// when
+		String result = calcUtil.getSubstractionText(9,9);
+
+		// when
+		assertEquals("9 - 9 = 0", result);
+		verify(calculator).subtract(anyInt(),anyInt());
 	}
 
 	@Test
